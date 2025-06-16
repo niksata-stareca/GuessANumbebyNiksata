@@ -1,10 +1,6 @@
 import sys
 import random
 
-# ---
-## Game Setup Functions
-# ---
-
 def get_difficulty():
     """Prompts the user to choose a difficulty and returns the corresponding max_tries."""
     while True:
@@ -31,10 +27,6 @@ def get_player_guess():
         else:
             print("Invalid input. Please enter a whole number.")
 
-# ---
-## Game Logic Functions
-# ---
-
 def play_round(max_tries):
     """Manages a single round of the guessing game."""
     computer_number = random.randint(1, 100)
@@ -45,7 +37,7 @@ def play_round(max_tries):
 
         if player_number == computer_number:
             print(f"You guessed it in {tries + 1} tries!")
-            return True  # Player won
+            return True
         else:
             if player_number < computer_number:
                 print("Too low!\n")
@@ -54,11 +46,7 @@ def play_round(max_tries):
             tries += 1
 
     print(f"Sorry, you reached the maximum tries ({max_tries}). The number was {computer_number}. Better luck next time!")
-    return False  # Player lost
-
-# ---
-## Main Game Loop
-# ---
+    return False
 
 def main_game():
     """Runs the main game loop, allowing the player to play multiple rounds."""
